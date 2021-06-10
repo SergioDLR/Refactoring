@@ -33,6 +33,12 @@ CuOOra >> addUser: aUser [
 ]
 
 { #category : #'as yet unclassified' }
+CuOOra >> contarVotosPositivos [ 
+	^questions sum: [:q | q positiveVotes size ]
+
+]
+
+{ #category : #'as yet unclassified' }
 CuOOra >> getPreguntasHoy [ 
 ^questions select:[:q | (q esDeHoy )].
 ]
