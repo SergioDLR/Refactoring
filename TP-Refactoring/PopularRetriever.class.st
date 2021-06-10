@@ -4,14 +4,19 @@ Class {
 	#category : #'TP-Refactoring-Model'
 }
 
+{ #category : #'as yet unclassified' }
+PopularRetriever >> promediarVotos: aList [
+^(cuoora contarVotosPositivos) / aList size
+
+]
+
 { #category : #retrieving }
 PopularRetriever >> retrieveQuestions: aUser [
-	| qRet temp followingCol topicsCol newsCol popularTCol averageVotes|
+	| qRet temp followingCol topicsCol newsCol popularTCol |
 	qRet := OrderedCollection new.
 	popularTCol := OrderedCollection new.
 	popularTCol := cuoora getPreguntasHoy . 
-	averageVotes := cuoora  contarVotosPositivos / popularTCol size.
-	temp := (popularTCol select:[:q | q positiveVotes size >= averageVotes ]).
+	temp := (popularTCol select:[:q | q positiveVotes size >= (self promediarVotos: popularTCol) ]).
 	qRet := self ordenarLista: temp.
 	^self ignorar:aUser deLista:qRet.
 ]
