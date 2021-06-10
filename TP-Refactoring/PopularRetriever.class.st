@@ -5,6 +5,11 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
+PopularRetriever >> getPreguntasRelevantesDe: aUser [
+	^self ordenarLista: self preguntasPopulares
+]
+
+{ #category : #'as yet unclassified' }
 PopularRetriever >> preguntasPopulares [ 
 ^(cuoora getPreguntasHoy select:[:q | q positiveVotes size >= (self promediarVotosHoy)]).
 ]
@@ -18,9 +23,4 @@ PopularRetriever >> promediarVotos: aList [
 { #category : #'as yet unclassified' }
 PopularRetriever >> promediarVotosHoy [
 ^(self promediarVotos: cuoora getPreguntasHoy).  
-]
-
-{ #category : #retrieving }
-PopularRetriever >> retrieveQuestions: aUser [
-	^self ignorar:aUser deLista:(self ordenarLista: self preguntasPopulares) .
 ]

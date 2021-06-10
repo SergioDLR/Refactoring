@@ -4,7 +4,7 @@ Class {
 	#category : #'TP-Refactoring-Model'
 }
 
-{ #category : #retrieving }
-TopicRetriever >> retrieveQuestions: aUser [
-	^self ignorar:aUser deLista:(self ordenarLista: aUser preguntasDeTopicos ).
+{ #category : #'as yet unclassified' }
+TopicRetriever >> getPreguntasRelevantesDe: aUser [
+	^self ordenarLista: aUser preguntasDeTopicos
 ]

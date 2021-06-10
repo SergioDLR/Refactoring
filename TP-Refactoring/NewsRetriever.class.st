@@ -4,7 +4,7 @@ Class {
 	#category : #'TP-Refactoring-Model'
 }
 
-{ #category : #retrieving }
-NewsRetriever >> retrieveQuestions: aUser [
-	^self ignorar:aUser deLista:(self ordenarLista: (cuoora getPreguntasHoy)).
+{ #category : #'as yet unclassified' }
+NewsRetriever >> getPreguntasRelevantesDe: aUser [
+	^ self ordenarLista: cuoora getPreguntasHoy
 ]

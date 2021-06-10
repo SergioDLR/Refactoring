@@ -23,6 +23,11 @@ QuestionRetriever >> cuoora: aCuooraInstance [
 ]
 
 { #category : #'as yet unclassified' }
+QuestionRetriever >> getPreguntasRelevantesDe: aUser [
+	self subclassResponsibility
+]
+
+{ #category : #'as yet unclassified' }
 QuestionRetriever >> ignorar: aUser deLista: qRet [
     ^qRet reject: [ :q | q user = aUser ].
 
@@ -35,5 +40,5 @@ QuestionRetriever >> ordenarLista:aList [
 
 { #category : #retrieving }
 QuestionRetriever >> retrieveQuestions: aUser [
-	self subclassResponsibility
+	^self ignorar:aUser deLista:(self getPreguntasRelevantesDe: aUser)
 ]
