@@ -5,6 +5,11 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
+PopularRetriever >> preguntasPopulares [ 
+^(cuoora getPreguntasHoy select:[:q | q positiveVotes size >= (self promediarVotosHoy)]).
+]
+
+{ #category : #'as yet unclassified' }
 PopularRetriever >> promediarVotos: aList [
 ^(cuoora contarVotosPositivos) / aList size
 
@@ -17,10 +22,9 @@ PopularRetriever >> promediarVotosHoy [
 
 { #category : #retrieving }
 PopularRetriever >> retrieveQuestions: aUser [
-	| qRet temp followingCol topicsCol newsCol popularTCol |
+	| qRet temp |
 	qRet := OrderedCollection new.
-	popularTCol := OrderedCollection new.
-	temp := (cuoora getPreguntasHoy select:[:q | q positiveVotes size >= (self promediarVotosHoy)]).
+	temp := self preguntasPopulares. 
 	qRet := self ordenarLista: temp.
 	^self ignorar:aUser deLista:qRet.
 ]
