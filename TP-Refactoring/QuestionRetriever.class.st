@@ -22,6 +22,12 @@ QuestionRetriever >> cuoora: aCuooraInstance [
 	cuoora := aCuooraInstance 
 ]
 
+{ #category : #'as yet unclassified' }
+QuestionRetriever >> ignorar: aUser deLista: qRet [
+    ^qRet reject: [ :q | q user = aUser ].
+
+]
+
 { #category : #retrieving }
 QuestionRetriever >> retrieveQuestions: aUser [
 	self subclassResponsibility
