@@ -9,7 +9,7 @@ TopicRetriever >> retrieveQuestions: aUser [
 	| qRet temp followingCol topicsCol newsCol popularTCol averageVotes|
 	qRet := OrderedCollection new.
 	topicsCol := OrderedCollection new.
-	aUser topics do:[ :topic | topicsCol addAll: topic questions ].
+	topicsCol:= aUser preguntasDeTopicos. 
 	qRet := self ordenarLista: topicsCol. 
-		^self ignorar:aUser deLista:qRet.
+	^self ignorar:aUser deLista:qRet.
 ]

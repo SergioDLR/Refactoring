@@ -86,6 +86,12 @@ User >> preguntasDeSeguidores [
 
 ]
 
+{ #category : #'as yet unclassified' }
+User >> preguntasDeTopicos [
+^self topics flatCollect: [:t| t questions].
+
+]
+
 { #category : #accessing }
 User >> questionRetriever [
 	^ questionRetriever
