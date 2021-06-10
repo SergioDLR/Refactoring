@@ -22,9 +22,6 @@ PopularRetriever >> promediarVotosHoy [
 
 { #category : #retrieving }
 PopularRetriever >> retrieveQuestions: aUser [
-	| qRet temp |
-	qRet := OrderedCollection new.
-	temp := self preguntasPopulares. 
-	qRet := self ordenarLista: temp.
-	^self ignorar:aUser deLista:qRet.
+
+	^self ignorar:aUser deLista:(self ordenarLista: self preguntasPopulares) .
 ]
