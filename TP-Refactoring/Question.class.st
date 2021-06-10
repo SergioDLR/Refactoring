@@ -35,6 +35,11 @@ Question >> addTopic: aTopic [
 
 ]
 
+{ #category : #'as yet unclassified' }
+Question >> esDeHoy [ 
+^ timestamp asDate = Date today.
+]
+
 { #category : #'initalize-release' }
 Question >> initialize [
 	answers := OrderedCollection new.

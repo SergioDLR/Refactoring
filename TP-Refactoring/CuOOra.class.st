@@ -32,6 +32,11 @@ CuOOra >> addUser: aUser [
 
 ]
 
+{ #category : #'as yet unclassified' }
+CuOOra >> getPreguntasHoy [ 
+^questions select:[:q | (q esDeHoy )].
+]
+
 { #category : #initialize }
 CuOOra >> initialize [
 	users := OrderedCollection new.
