@@ -28,6 +28,11 @@ QuestionRetriever >> ignorar: aUser deLista: qRet [
 
 ]
 
+{ #category : #'as yet unclassified' }
+QuestionRetriever >> ordenarLista:aList [
+^((aList asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ])last: (100 min: aList size)).
+]
+
 { #category : #retrieving }
 QuestionRetriever >> retrieveQuestions: aUser [
 	self subclassResponsibility

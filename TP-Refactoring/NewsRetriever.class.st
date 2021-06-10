@@ -10,7 +10,6 @@ NewsRetriever >> retrieveQuestions: aUser [
 	qRet := OrderedCollection new.
 	newsCol := OrderedCollection new.
 	newsCol := cuoora getPreguntasHoy.
-	temp := newsCol asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
-	qRet := temp last: (100 min: temp size).
+	qRet := self ordenarLista: newsCol.
 	^self ignorar:aUser deLista:qRet.
 ]
