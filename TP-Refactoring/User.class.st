@@ -80,6 +80,12 @@ User >> password: anObject [
 	password := anObject
 ]
 
+{ #category : #'as yet unclassified' }
+User >> preguntasDeSeguidores [ 
+^self following  flatCollect:[ :f |f questions ].
+
+]
+
 { #category : #accessing }
 User >> questionRetriever [
 	^ questionRetriever

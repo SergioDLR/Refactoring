@@ -22,6 +22,5 @@ PopularRetriever >> promediarVotosHoy [
 
 { #category : #retrieving }
 PopularRetriever >> retrieveQuestions: aUser [
-
 	^self ignorar:aUser deLista:(self ordenarLista: self preguntasPopulares) .
 ]

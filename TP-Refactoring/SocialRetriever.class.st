@@ -9,7 +9,7 @@ SocialRetriever >> retrieveQuestions: aUser [
 	| qRet temp followingCol topicsCol newsCol popularTCol averageVotes|
 	qRet := OrderedCollection new.
 	followingCol := OrderedCollection new.
-	aUser following do:[ :follow | followingCol addAll: follow questions ].
+	followingCol := aUser preguntasDeSeguidores.	
 	qRet := self ordenarLista: followingCol. 
 	^self ignorar:aUser deLista:qRet.
 ]
